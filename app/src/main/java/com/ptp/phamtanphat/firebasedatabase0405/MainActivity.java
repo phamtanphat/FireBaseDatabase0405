@@ -14,6 +14,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
@@ -112,10 +113,12 @@ public class MainActivity extends AppCompatActivity {
 //
 //            }
 //        });
+
         myRef.child("Nhanvien").orderByChild("ten").equalTo("Nguyen Van A").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Log.d("BBB",dataSnapshot.getValue().toString());
+                DataSnapshot firstChild = dataSnapshot.getChildren().iterator().next();
+                Log.d("BBB", firstChild.getValue().toString());
             }
 
             @Override
