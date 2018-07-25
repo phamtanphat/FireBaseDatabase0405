@@ -9,6 +9,10 @@ public class Nhanvien {
         this.tuoi = tuoi;
     }
 
+    // Can thiet khi doc ve
+    public Nhanvien() {
+    }
+
     public String getTen() {
         return ten;
     }
